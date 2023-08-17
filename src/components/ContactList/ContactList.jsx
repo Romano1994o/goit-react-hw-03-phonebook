@@ -9,18 +9,16 @@ import {
 export const ContactList = ({ contacts, onDelete }) => {
   return (
     <ul>
-      {contacts.map(({ id, name, number }) => {
-        return (
-          <ContactListContainer>
-            <ContactItem key={id}>
+      {contacts.map(({ id, name, number }) => (
+        <ContactListContainer key={id}>
+          <ContactItem>
             <ContactName>
               {name}: {number}
             </ContactName>
             <DeleteButton onClick={() => onDelete(id)}>Delete</DeleteButton>
           </ContactItem>
-          </ContactListContainer>
-        );
-      })}
+        </ContactListContainer>
+      ))}
     </ul>
   );
 };
